@@ -37,14 +37,15 @@ def phone_func(contacts_book, user_input):
     _, name = user_input.split(" ", 1)
     if name in contacts_book.keys():
         for i in filter(lambda x: x[0] == name, contacts_book.items()):
-            return i[1]
+            phone_number = i[1]
+            return f"{name}'s phone number is {phone_number}"
     else:
         return f'Name {name} not found.'
 
 #To polecenie wyświetla wszystkie zapisane kontakty z numerami telefonów w konsoli.
 def show_all_func(contacts_book):
     current_contacts = '\n'.join(map(lambda x: f'{x[0]}: {x[1]}', contacts_book.items()))
-    return current_contacts
+    return f'Your contacts:\n{current_contacts}'
 
 def main():
     contacts = {}
